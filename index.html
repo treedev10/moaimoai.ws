@@ -14,7 +14,7 @@
   src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
 </script>
 
-
+<!--<a href="art.html">art</a>-->
 
 
 </head>
@@ -27,6 +27,10 @@
  <model-viewer
     src="tete_monumentale_de_moai.glb"
     alt="3D model"
+    disable-zoom
+    dsiable-pan
+    pan-sensitivity="0"
+    camera-controls
     >
  </model-viewer>
  
@@ -36,8 +40,8 @@
 
  
 
- <button id="globalButton">say hi to moai</button>
-  <p>Global presses: <span id="counter">0</span></p>
+ <button id="globalButton">say hi to Moai</button>
+  <p>Total Moai enjoyers: <span id="counter">0</span></p>
 
   <script>
 
@@ -81,7 +85,7 @@
 
   // Play sound when button is clicked
   button.addEventListener('click', () => {
-    sound.currentTime = 0; // Rewind to start
+    
     sound.play();
   });</script>
 
