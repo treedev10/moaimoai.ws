@@ -1,21 +1,92 @@
+<!--"Tête monumentale de Moaï" (https://skfb.ly/6Rw6r) by LZCreation is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).-->
 <!DOCTYPE html>
 
 <html>
 <head>
+    <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="Moai_Rano_raraku.jpg">
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
 <title>MOAI</title>
+
+<script type="module"
+  src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
+</script>
+
+
+
 
 </head>
 
 
 <body>
  <header>
- <h1>Welcome to MOAI</h1></header>
- <img src="Moai_Rano_raraku.jpg" alt="moai">
- <footer><h5>a site owend by <a href="https://tree43.xyz">tree43</a><br><h5>*this is a temporary site*</h5></h5></footer>
+ <h1>MOAI</h1></header>
+
+ <model-viewer
+    src="tete_monumentale_de_moai.glb"
+    alt="3D model"
+    >
+ </model-viewer>
+ 
+
+
+
+
+ 
+
+ <button id="globalButton">say hi to moai</button>
+  <p>Global presses: <span id="counter">0</span></p>
+
+  <script>
+
+ 
+
+    const firebaseConfig = {
+  apiKey: "AIzaSyA9NE0U6Wgrdkp3G4copU4__7ofRHl4QVc",
+  authDomain: "xn--d28ha-ws.firebaseapp.com",
+  databaseURL: "https://xn--d28ha-ws-default-rtdb.firebaseio.com",
+  projectId: "xn--d28ha-ws",
+  storageBucket: "xn--d28ha-ws.firebasestorage.app",
+  messagingSenderId: "919970998540",
+  appId: "1:919970998540:web:396557799ce9bd51ae4129"
+};
+
+    // Initialize Firebase
+    const app = firebase.initializeApp(firebaseConfig);
+    const db = firebase.database();
+
+    const button = document.getElementById('globalButton');
+    const counter = document.getElementById('counter');
+
+    const countRef = db.ref('count');
+
+    // Load initial count
+    countRef.on('value', (snapshot) => {
+      counter.textContent = snapshot.val() || 0;
+    });
+
+    // Increment count on button click
+    button.addEventListener('click', () => {
+      countRef.transaction((current) => {
+        return (current || 0) + 1;
+      });
+    });
+  </script>
+  <audio id="mySound" src="moai.mp3"></audio>
+  <script>// Get button and audio elements
+  const buttons = document.getElementById('globalButton');
+  const sound = document.getElementById('mySound');
+
+  // Play sound when button is clicked
+  button.addEventListener('click', () => {
+    sound.currentTime = 0; // Rewind to start
+    sound.play();
+  });</script>
+
 </body>
-
-
+<footer><h5>a site owend by <a href="https://tree43.xyz">tree435</a><br><h5>*this is a temporary site*</h5></h5></footer>
+ 
+ <footer><a href="https://docs.google.com/forms/d/e/1FAIpQLSfpku9hvPkFHYlLnAgfGewHkWf8-jOV0hdK_cD8tpVIkchdRw/viewform?usp=dialog">Submit art</a></footer>
 </html>
-
-

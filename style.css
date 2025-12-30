@@ -1,5 +1,7 @@
 body{
     background-color:darkslategrey;
+    text-align: center;
+
 }
 
 a   {
@@ -7,8 +9,33 @@ a   {
     text-decoration:none;
 }
 
-header h5 {
-    text-align:top;
-    padding-top: -5px;
-
+html{
+    text-align: center;
 }
+
+model-viewer{
+    width: 600px;
+    height: 400px;
+    margin: auto;
+    display: block;
+}
+
+button{
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: grey;
+}
+
+
+
